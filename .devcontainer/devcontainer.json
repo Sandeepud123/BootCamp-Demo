@@ -1,22 +1,19 @@
 {
-  "name": "Codespace to bootstrap GitHub Action Importer in a Codespace",
-  //Use base codespace image then pull GitHub Action Importer on postCreateCommand,  
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
+  "name": "Codespace to perform GitHub Actions Importer Labs",
   "remoteEnv": {
-    "DOCKER_ARGS": "--network=host",
     "INSTALLATION_TYPE": "labs"
-  },    
-    // Add the IDs of extensions you want installed when the container is created.
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "GitHub.copilot"
-            ]
-        },
-        "codespaces": {
-            "openFiles": [
-                "codespace.md"
-            ]
-        }
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker"
+      ]
     }
+  },
+  "postCreateCommand": "gh extension install github/gh-actions-importer || echo 'Could not auto-build. Skipping.' "
 }
