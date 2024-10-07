@@ -5,8 +5,7 @@
   "remoteEnv": {
     "DOCKER_ARGS": "--network=host",
     "INSTALLATION_TYPE": "labs"
-  }
-      ,    
+  },    
     // Add the IDs of extensions you want installed when the container is created.
     "customizations": {
         "vscode": {
